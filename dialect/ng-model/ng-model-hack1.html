@@ -4,6 +4,49 @@
     <title>获取HTML属性</title>
 </head>
 
+<body>
+    <input id="input1" type="text" ng-model="mytext" />
+    <div>
+        我的文本<span class="text">{{mytext}}</span>
+    </div>
+    {{1+5*2}}
+</body>
+
+<style>
+    input {
+        width: 60%;
+    }
+</style>
+
+<script>
+
+function print_nodes(msg, nodes) {
+    console.info('--------------------', msg);
+    for(let i=0; i<nodes.length; i++) {
+        console.info(`${i}: `);
+        console.info(nodes[i]);
+    }
+}
+function print_all() {
+    print_nodes('all_nodes using document.all', document.all);
+
+}
+function print_childNodes() {
+    print_nodes('all_nodes using childNodes: ', document.body.childNodes);
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+    print_all();
+    print_childNodes();
+});
+
+let intput1 = document.getElementById('input1');
+
+// change
+input1.addEventListener('keyup', function(e){
+    console.info(`new value of input1: ${e.target.value}`);
+});
 
 
+</script>
 </html>
