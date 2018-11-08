@@ -10,6 +10,8 @@
         我的文本<span class="text">{{mytext}}</span>
     </div>
     {{1+5*2}}
+    <br>
+    标签:<label for="" id="label1"></label>
 </body>
 
 <style>
@@ -41,12 +43,20 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 let intput1 = document.getElementById('input1');
+let label1 = document.getElementById('label1');
 
 // change
 input1.addEventListener('keyup', function(e){
     console.info(`new value of input1: ${e.target.value}`);
+    label1.innerHTML = e.target.value;
 });
 
 
 </script>
+
+<style>
+#label1{
+    color:fuchsia;
+}
+</style>
 </html>
